@@ -10,7 +10,12 @@
   },
   "license": "MIT",
   "main": "lib/index.js",
-  "keywords": [],
+  "keywords": [
+    "oas",
+    "openapis",
+    "schema",
+    "swagger"
+  ],
   "engines": {
     "node": ">=12"
   },
