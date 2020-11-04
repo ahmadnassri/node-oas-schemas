@@ -16,7 +16,7 @@ test('object structure', assert => {
 test('same file', assert => {
   assert.plan(1)
 
-  const oas2 = JSON.parse(readFileSync(join(__dirname, '..', 'schemas', 'v2.0', 'schema.json')))
+  const oas2 = JSON.parse(readFileSync(join(__dirname, '../vendor/schemas/v2.0/schema.json')))
 
   assert.match(schema[2.0], oas2)
 })
