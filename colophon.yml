@@ -1,8 +1,8 @@
 version: 2.0
 
-id: template-node
+id: oas-schemas
 
 about:
-  title: Node Lib Template
-  description: node library project template
-  repository: ahmadnassri/template-node-lib
+  title: OAS Schemas
+  description: Schema files for Specification, kept automatically up-to-date
+  repository: ahmadnassri/node-oas-schemas

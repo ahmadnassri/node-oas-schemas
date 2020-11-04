@@ -1,59 +1,67 @@
-## Features
+## Why
 
-#### CI Automation
+There are a few "OAS Schema" packages already, however, most come with extra bloat, and all of them are manually updated by the maintainer.
 
-> Using [GitHub Actions]
+This package is automatically updated by [`Dependabot`](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates), and deployed / published with [GitHub Actions](.github/workflows/release.yml)
 
-- automatic releases with [conventional-commits] & [semantic-release]
-- publish to both npm Public Registry & GitHub Package Manager
-- full history changelog in [GitHub Releases]
-- automatic pull-requests for dependency updates using [dependabot]
-- automatic merging of "patch" updates to dependencies using [dependabot-auto-merge]
-- lint everything with [super-linter]
-- lint commit message format against [Conventional Commits]
-- test on all LTS versions of Node.js
-- run `npm audit` before releasing / testing to keep a higher security standard
+## What
 
-##### Local Automation
+A simple npm package that includes the OAS Schema files and exports them for usage in your code.
 
-> Using [Docker Compose]
+```
+.
+├── LICENSE
+├── index.js
+└── schemas
+    ├── v1.2
+    │   ├── README.md
+    │   ├── apiDeclaration.json
+    │   ├── authorizationObject.json
+    │   ├── dataType.json
+    │   ├── dataTypeBase.json
+    │   ├── infoObject.json
+    │   ├── modelsObject.json
+    │   ├── oauth2GrantType.json
+    │   ├── operationObject.json
+    │   ├── parameterObject.json
+    │   ├── resourceListing.json
+    │   └── resourceObject.json
+    ├── v2.0
+    │   ├── README.md
+    │   └── schema.json
+    └── v3.0
+        ├── README.md
+        ├── schema.json
+        └── schema.yaml
+```
 
-- lint everything with [super-linter]
-- test on all LTS versions of Node.js
-- generate README using [pandoc] with a [template](./docs/README.template)
+## How
 
-## Usage
+```js
+// directly require the JSON schema files
+const oas2 = require('oas-schemas/schemas/v2.0/schema.json')
+const oas3 = require('oas-schemas/schemas/v3.0/schema.json')
 
-#### GitHub Templates
+// require all the schemas in one object
+const schemas = require('oas-schemas')
 
-1. create a repository from the template
-1. clone locally
-1. add secrets in GitHub Actions for `NPM_TOKEN` & `GH_TOKEN`
-1. update `colophon.yml`, `docs/README.md` with info about the project
-  
-> **Note:**  
-> `GH_TOKEN` is required for action `auto-merge`, `readme`, `release` workflows
-
-## Local Automation
-
-use [Docker Compose][docker-compose] to run tasks locally:
-
-- `docker-compose run readme` to regenerate `README.md`
-- `docker-compose run test` to run tests across all LTS versions of Node.js
-- `docker-compose run lint` to execute [super-linter] locally
-
-> **Note:**  
-> Your main `README.md` file is in `docs/README.md`, the file at root is generated using [pandoc] using the provided [template](./docs/README.template).  
->
-> You should run `docker-compose run readme` after any change to `docs/README.md` and before commit / push
-
-[GitHub Releases]: https://github.com/ahmadnassri/template-node/releases
-[conventional-commits]: https://www.conventionalcommits.org/
-[dependabot-auto-merge]: https://github.com/marketplace/actions/dependabot-auto-merge
-[dependabot]: https://dependabot.com/
-[Docker Compose]: https://docs.docker.com/compose/
-[GitHub Actions]: https://github.com/features/actions
-[pandoc]: https://pandoc.org/
-[semantic-release]: https://github.com/marketplace/actions/conventional-semantic-release
-[super-linter]: https://github.com/github/super-linter
-[Conventional Commits]: https://www.conventionalcommits.org/en/v1.0.0/
+/** schemas is an object with the following shape:
+  {
+    1.2: {
+      apiDeclaration: ...
+      authorizationObject: ...
+      dataType: ...
+      dataTypeBase: ...
+      infoObject: ...
+      modelsObject: ...
+      oauth2GrantType: ...
+      operationObject: ...
+      parameterObject: ...
+      resourceListing: ...
+      resourceObject: ...
+    },
+    2.0: ...
+    3.0: ...
+  }
+*/
+```
