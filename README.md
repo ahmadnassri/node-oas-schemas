@@ -12,7 +12,7 @@ Schema files for Specification, kept automatically up-to-date
 
 There are a few "OAS Schema" packages already, however, most come with extra bloat, and all of them are manually updated by the maintainer.
 
-This package is automatically updated by [`Dependabot`](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates), and deployed / published with [GitHub Actions](.github/workflows/release.yml)
+This package is automatically updated by [`Dependabot`][], and deployed / published with [GitHub Actions][]
 
 ## What
 
@@ -73,6 +73,9 @@ const schemas = require('oas-schemas')
   }
 */
 ```
+
+  [`Dependabot`]: https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/about-dependabot-version-updates
+  [GitHub Actions]: .github/workflows/release.yml
 
 ----
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
