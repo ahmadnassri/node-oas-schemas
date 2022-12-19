@@ -5,12 +5,13 @@ const { test } = require('tap')
 const schema = require('..')
 
 test('object structure', assert => {
-  assert.plan(4)
+  assert.plan(5)
 
   assert.equal(typeof schema, 'object')
   assert.equal(typeof schema[1.2], 'object')
   assert.equal(typeof schema[2.0], 'object')
   assert.equal(typeof schema[3.0], 'object')
+  assert.equal(typeof schema[3.1], 'object')
 })
 
 test('same file', assert => {
