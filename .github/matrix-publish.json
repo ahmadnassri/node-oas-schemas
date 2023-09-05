@@ -1,6 +1,6 @@
 {
-  "include": [
-    { "id": "NPM", "registry": "https://registry.npmjs.org", "name": "oas-schemas" },
-    { "id": "GITHUB", "registry": "https://npm.pkg.github.com", "name": "@ahmadnassri/oas-schemas" }
+  "registry": [
+    { "id": "NPM", "url": "https://registry.npmjs.org", "name": "oas-schemas" },
+    { "id": "GITHUB", "url": "https://npm.pkg.github.com", "name": "@ahmadnassri/oas-schemas" }
   ]
 }
